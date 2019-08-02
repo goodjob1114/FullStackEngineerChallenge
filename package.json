@@ -1,0 +1,12 @@
+{
+  "name": "fullstack-demo",
+  "version": "1.0.0",
+  "description": "A demo web application ",
+  "repository": "https://github.com/wuct/FullStackEngineerChallenge",
+  "author": "wuct <wu.chingting@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
