@@ -2,8 +2,10 @@
   "name": "server",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "start": "node src/server.js"
+    "start": "node --experimental-modules src/server.ts",
+    "type-check": "tsc"
   },
   "dependencies": {
     "graphql-yoga": "1.2.0"
