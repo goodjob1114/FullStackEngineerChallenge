@@ -1,4 +1,4 @@
-import yoga from 'graphql-yoga';
+import { GraphQLServer } from 'graphql-yoga';
 
 const sampleItems = [
   { name: 'Apple' },
@@ -23,7 +23,7 @@ const resolvers = {
 };
 
 const options = { port: 4000 };
-const server = new yoga.GraphQLServer({ typeDefs, resolvers });
+const server = new GraphQLServer({ typeDefs, resolvers });
 server.start(options, () =>
   console.log('Server is running on localhost:' + options.port)
 );

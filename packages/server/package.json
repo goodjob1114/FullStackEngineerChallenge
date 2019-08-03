@@ -4,10 +4,23 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node --experimental-modules src/server.ts",
+    "prepare": "yarn run build",
+    "start": "node build/server.js",
+    "build": "babel -x .ts -d ./build ./src",
+    "watch:node": "nodemon --watch build/ build/server.js",
+    "watch:js": "yarn run build -w",
+    "watch": "concurrently \"yarn:watch:*\"",
     "type-check": "tsc"
   },
   "dependencies": {
     "graphql-yoga": "1.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-typescript": "^7.3.3",
+    "concurrently": "^4.1.1",
+    "nodemon": "^1.19.1"
   }
 }
