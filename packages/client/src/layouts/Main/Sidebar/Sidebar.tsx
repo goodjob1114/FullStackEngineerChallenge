@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { Divider, Drawer } from '@material-ui/core';
-import DashboardIcon from '@material-ui/icons/Dashboard';
+import RateReview from '@material-ui/icons/RateReview';
 import PeopleIcon from '@material-ui/icons/People';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import SettingsIcon from '@material-ui/icons/Settings';
@@ -47,9 +47,9 @@ const Sidebar = (props: Props) => {
 
   const pages = [
     {
-      title: 'Dashboard',
-      href: '/dashboard',
-      icon: <DashboardIcon />,
+      title: 'Reviews',
+      href: '/reviews',
+      icon: <RateReview />,
     },
     {
       title: 'Users',

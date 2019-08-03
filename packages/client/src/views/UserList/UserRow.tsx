@@ -1,14 +1,8 @@
 import React, { useCallback } from 'react';
-import {
-  Avatar,
-  Checkbox,
-  TableCell,
-  TableRow,
-  Typography,
-} from '@material-ui/core';
+import { Checkbox, TableCell, TableRow, Typography } from '@material-ui/core';
 import * as D from 'date-fns/fp';
-import { makeStyles } from '../../theme/theme';
 import { User } from './UsersTable';
+import AvatarCell from '../common/AvatarCell';
 
 interface Props {
   user: User;
@@ -16,19 +10,8 @@ interface Props {
   onSelectedChange: (user: User, isSelected: boolean) => void;
 }
 
-const useStyles = makeStyles(theme => ({
-  nameContainer: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  avatar: {
-    marginRight: theme.spacing(2),
-  },
-}));
-
 const UserRow = (props: Props) => {
   const { user, selected, onSelectedChange } = props;
-  const classes = useStyles();
 
   const handleSelect = useCallback(() => {
     onSelectedChange(user, !selected);
@@ -44,17 +27,7 @@ const UserRow = (props: Props) => {
           value="true"
         />
       </TableCell>
-      <TableCell>
-        <div className={classes.nameContainer}>
-          <Avatar
-            className={classes.avatar}
-            src={`https://avatars.dicebear.com/v2/human/${user.id}.svg`}
-          >
-            {user.name}
-          </Avatar>
-          <Typography variant="body1">{user.name}</Typography>
-        </div>
-      </TableCell>
+      <AvatarCell id={user.id} name={user.name} />
       <TableCell>
         <Typography variant="body1">{user.email}</Typography>
       </TableCell>
