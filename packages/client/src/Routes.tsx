@@ -5,13 +5,14 @@ import Minimal from './layouts/Minimal/Minimal';
 import Main from './layouts/Main/Main';
 
 const NotFound = lazy(() => import('./views/NotFound'));
+const UserList = lazy(() => import('./views/UserList/UserList'));
 
 const Routes = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Switch>
         <RouteWithLayout
-          component={NotFound}
+          component={UserList}
           exact
           layout={Main}
           path="/users"
