@@ -2,6 +2,17 @@ overwrite: true
 schema: '../server/src/typeDefs/*.graphql'
 documents: '../client/src/**/*.graphql'
 generates:
+  ../server/src/generatedTypes.ts:
+    plugins:
+      - add: '// THIS IS A GENERATED FILE'
+      - typescript
+      - typescript-resolvers
+    config:
+      # TODO: turn avoidOptionals: ture, avoidOptionals: false to make code safer
+      # avoidOptionals: true
+      useIndexSignature: true
+      immutableTypes: true
+      noSchemaStitching: false
   ../client/src/generatedTypes.tsx:
     plugins:
       - add: '// THIS IS A GENERATED FILE'
