@@ -25,9 +25,9 @@ type User {
   """
   Reviews from or to this user.
   """
-  reviews: [Review]!
+  reviews: [Review!]!
 }
 
 type Query {
-  users: [User]!
+  users: [User!]!
 }

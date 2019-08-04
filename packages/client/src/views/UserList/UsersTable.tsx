@@ -14,14 +14,7 @@ import {
   TablePagination,
 } from '@material-ui/core';
 import { makeStyles } from '../../theme/theme';
-import UserRow from './UserRow';
-
-export interface User {
-  id: string;
-  name: string;
-  email: string;
-  createdAt: number;
-}
+import UserRow, { User } from './UserRow';
 
 interface Props {
   className?: string;

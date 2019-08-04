@@ -2,7 +2,7 @@ overwrite: true
 schema: '../server/src/typeDefs/*.graphql'
 documents: '../client/src/**/*.graphql'
 generates:
-  ./generatedTypes.tsx:
+  ../client/src/generatedTypes.tsx:
     plugins:
       - add: '// THIS IS A GENERATED FILE'
       - typescript

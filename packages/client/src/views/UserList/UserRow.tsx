@@ -1,8 +1,14 @@
 import React, { useCallback } from 'react';
 import { Checkbox, TableCell, TableRow, Typography } from '@material-ui/core';
 import * as D from 'date-fns/fp';
-import { User } from './UsersTable';
 import AvatarCell from '../common/AvatarCell';
+
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  createdAt: number;
+}
 
 interface Props {
   user: User;

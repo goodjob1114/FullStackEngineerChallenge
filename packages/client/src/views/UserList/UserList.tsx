@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useGetUsersQuery } from '../../generatedTypes';
 import mockData from './data';
 import { makeStyles } from '../../theme/theme';
 import UsersToolbar from './UsersToolbar';
@@ -15,8 +16,7 @@ const useStyles = makeStyles(theme => ({
 
 const UserList = () => {
   const classes = useStyles();
-
-  const [users] = useState(mockData);
+  const { data: { users = [] } = {} } = useGetUsersQuery();
 
   return (
     <div className={classes.root}>

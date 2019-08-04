@@ -13,7 +13,7 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '../../theme/theme';
 import ReviewRow from './ReviewRow';
-import { User } from '../UserList/UsersTable';
+import { User } from '../UserList/UserRow';
 
 export interface Review {
   id: string;
