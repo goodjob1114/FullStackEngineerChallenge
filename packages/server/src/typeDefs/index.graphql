@@ -1,6 +1,32 @@
-#import './user.graphql'
-
+# TOOD: split this file into separated modules for better maintainability.
+# Need to find a way to split it without breaking the codegen
 scalar Date
+
+enum Role {
+  ADMIN
+  EMPLOYEE
+}
+
+type Review {
+  id: ID!
+  from: User!
+  to: User!
+  createdAt: Date!
+  submittedAt: Date
+  feedback: String
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  role: [Role!]!
+  createdAt: Date!
+  """
+  Reviews from or to this user.
+  """
+  reviews: [Review]!
+}
 
 type Query {
   users: [User]!
