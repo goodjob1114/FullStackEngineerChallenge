@@ -15,14 +15,19 @@
     "graphql-import": "^0.7.1",
     "graphql-yoga": "^1.18.1",
     "graphql.macro": "^1.4.2",
-    "source-map-support": "^0.5.13"
+    "pg": "^7.12.0",
+    "source-map-support": "^0.5.13",
+    "typeorm": "0.2.18"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-typescript": "^7.3.3",
     "babel-plugin-macros": "^2.6.1",
+    "babel-plugin-transform-typescript-metadata": "^0.2.2",
     "concurrently": "^4.1.1",
     "nodemon": "^1.19.1"
   }
