@@ -1,0 +1,10 @@
+#import './user.graphql'
+
+type Review {
+  id: ID!
+  from: User!
+  to: User!
+  createdAt: Date!
+  submittedAt: Date
+  feedback: String
+}

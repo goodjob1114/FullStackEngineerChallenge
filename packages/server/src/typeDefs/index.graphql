@@ -1,0 +1,7 @@
+#import './user.graphql'
+
+scalar Date
+
+type Query {
+  users: [User]!
+}

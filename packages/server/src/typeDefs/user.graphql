@@ -1,0 +1,18 @@
+#import './review.graphql'
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  role: [Role!]!
+  createdAt: Date!
+  """
+  Reviews from or to this user.
+  """
+  reviews: [Review]!
+}
+
+enum Role {
+  ADMIN
+  EMPLOYEE
+}
