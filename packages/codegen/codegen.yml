@@ -8,6 +8,8 @@ generates:
       - typescript
       - typescript-resolvers
     config:
+      scalars:
+        Date: Date
       # TODO: turn avoidOptionals: ture, avoidOptionals: false to make code safer
       # avoidOptionals: true
       useIndexSignature: true

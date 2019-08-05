@@ -12,7 +12,7 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  Date: any;
+  Date: Date;
 };
 
 export type Query = {
@@ -42,8 +42,10 @@ export type User = {
   readonly email: Scalars["String"];
   readonly role: Role;
   readonly createdAt: Scalars["Date"];
-  /** Reviews from or to this user. */
-  readonly reviews: ReadonlyArray<Review>;
+  /** Reviews from this user. */
+  readonly fromReviews: ReadonlyArray<Review>;
+  /** Reviews to this user. */
+  readonly toReviews: ReadonlyArray<Review>;
 };
 export type WithIndex<TObject> = TObject & Record<string, any>;
 export type ResolversObject<TObject> = WithIndex<TObject>;
@@ -182,7 +184,12 @@ export type UserResolvers<
   email?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
   role?: Resolver<ResolversTypes["Role"], ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes["Date"], ParentType, ContextType>;
-  reviews?: Resolver<
+  fromReviews?: Resolver<
+    ReadonlyArray<ResolversTypes["Review"]>,
+    ParentType,
+    ContextType
+  >;
+  toReviews?: Resolver<
     ReadonlyArray<ResolversTypes["Review"]>,
     ParentType,
     ContextType

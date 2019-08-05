@@ -27,7 +27,7 @@ class User {
   role!: Role;
 
   @CreateDateColumn()
-  createdAt!: number;
+  createdAt!: Date;
 
   @OneToMany(type => Review, review => review.from)
   fromReviews!: Review[];

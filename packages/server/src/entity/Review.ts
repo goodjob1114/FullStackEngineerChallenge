@@ -13,10 +13,10 @@ class Review {
   id!: string;
 
   @CreateDateColumn()
-  createdAt!: string;
+  createdAt!: Date;
 
   @Column('timestamp')
-  submittedAt!: number;
+  submittedAt!: Date;
 
   @ManyToOne(type => User, user => user.fromReviews)
   from!: User;

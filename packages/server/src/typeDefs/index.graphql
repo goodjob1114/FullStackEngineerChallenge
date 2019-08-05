@@ -23,9 +23,14 @@ type User {
   role: Role!
   createdAt: Date!
   """
-  Reviews from or to this user.
+  Reviews from this user.
   """
-  reviews: [Review!]!
+  fromReviews: [Review!]!
+
+  """
+  Reviews to this user.
+  """
+  toReviews: [Review!]!
 }
 
 type Query {

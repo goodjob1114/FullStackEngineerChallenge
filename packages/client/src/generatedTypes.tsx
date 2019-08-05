@@ -37,10 +37,12 @@ export type User = {
   id: Scalars["ID"];
   name: Scalars["String"];
   email: Scalars["String"];
-  role: Array<Role>;
+  role: Role;
   createdAt: Scalars["Date"];
-  /** Reviews from or to this user. */
-  reviews: Array<Review>;
+  /** Reviews from this user. */
+  fromReviews: Array<Review>;
+  /** Reviews to this user. */
+  toReviews: Array<Review>;
 };
 export type GetUsersQueryVariables = {};
 
