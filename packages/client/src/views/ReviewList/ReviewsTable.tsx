@@ -77,9 +77,12 @@ const ReviewsTable = (props: Props) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {reviews.slice(0, rowsPerPage).map(review => (
-                <ReviewRow review={review} />
-              ))}
+              {reviews
+                .sort((a, b) => b.createdAt - a.createdAt)
+                .slice(rowsPerPage * page, rowsPerPage * (page + 1))
+                .map(review => (
+                  <ReviewRow review={review} />
+                ))}
             </TableBody>
           </Table>
         </div>
