@@ -1,0 +1,11 @@
+entity: Review
+items:
+  review{1..10}:
+    from: '@user*'
+    to: '@user*'
+  review{11..20}:
+    from: '@user*'
+    to: '@user*'
+    createdAt: '2019-08-03 14:30:48.101444'
+    submittedAt: '2019-08-04 14:30:48.101444'
+    feedback: '{{lorem.paragraph}}'

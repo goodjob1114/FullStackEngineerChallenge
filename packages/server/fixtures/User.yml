@@ -1,0 +1,13 @@
+entity: User
+items:
+  user1:
+    name: 'CT Wu'
+    email: 'admin@wuct.com'
+    role: ADMIN
+    createdAt: '{{date.past}}'
+  user{2..30}:
+    name: '{{name.findName}}'
+    email: '{{internet.email}}'
+    role: ADMIN
+    createdAt: '{{date.past}}'
+
