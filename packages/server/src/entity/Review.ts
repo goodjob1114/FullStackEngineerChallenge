@@ -15,7 +15,7 @@ class Review {
   @CreateDateColumn()
   createdAt!: Date;
 
-  @Column('timestamp')
+  @Column({ type: 'timestamp', nullable: true })
   submittedAt!: Date;
 
   @ManyToOne(type => User, user => user.fromReviews)
@@ -24,7 +24,7 @@ class Review {
   @ManyToOne(type => User, user => user.toReviews)
   to!: User;
 
-  @Column('text')
+  @Column({ type: 'text', nullable: true })
   feedback!: string;
 }
 

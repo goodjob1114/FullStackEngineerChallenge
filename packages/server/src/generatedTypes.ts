@@ -19,6 +19,7 @@ export type Mutation = {
   __typename?: "Mutation";
   readonly createEmployee: User;
   readonly updateUser: User;
+  readonly createReview: Review;
 };
 
 export type MutationCreateEmployeeArgs = {
@@ -29,6 +30,11 @@ export type MutationCreateEmployeeArgs = {
 export type MutationUpdateUserArgs = {
   id: Scalars["ID"];
   input: UserInput;
+};
+
+export type MutationCreateReviewArgs = {
+  from: Scalars["ID"];
+  to: Scalars["ID"];
 };
 
 export type Query = {
@@ -189,6 +195,12 @@ export type MutationResolvers<
     ParentType,
     ContextType,
     MutationUpdateUserArgs
+  >;
+  createReview?: Resolver<
+    ResolversTypes["Review"],
+    ParentType,
+    ContextType,
+    MutationCreateReviewArgs
   >;
 }>;
 

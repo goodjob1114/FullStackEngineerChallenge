@@ -1,6 +1,7 @@
 import { MutationResolvers } from '../generatedTypes';
 import { getRepository } from 'typeorm';
 import UserEntity from '../entity/User';
+import ReviewEntity from '../entity/Review';
 
 const Mutation: MutationResolvers = {
   createEmployee: async (_, { email, name }) => {
@@ -22,6 +23,25 @@ const Mutation: MutationResolvers = {
     user.name = input.name == null ? user.name : input.name;
     await userRepository.save(user);
     return user;
+  },
+  createReview: async (_, { from, to }) => {
+    const userRepository = getRepository(UserEntity);
+    const reviewRepository = getRepository(ReviewEntity);
+    // TODO: find users concurrently
+    const fromUser = await userRepository.findOne(from);
+    const toUser = await userRepository.findOne(to);
+    const review = new ReviewEntity();
+    // TODO: handler errors with apollo-error or similiar approaches
+    if (!fromUser) {
+      throw new Error(`can not find the user id: ${from}`);
+    }
+    if (!toUser) {
+      throw new Error(`can not find the user id: ${to}`);
+    }
+    review.from = fromUser;
+    review.to = toUser;
+    await reviewRepository.save(review);
+    return review;
   },
 };
 

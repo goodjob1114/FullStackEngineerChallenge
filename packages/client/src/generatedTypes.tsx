@@ -16,6 +16,7 @@ export type Mutation = {
   __typename?: "Mutation";
   createEmployee: User;
   updateUser: User;
+  createReview: Review;
 };
 
 export type MutationCreateEmployeeArgs = {
@@ -26,6 +27,11 @@ export type MutationCreateEmployeeArgs = {
 export type MutationUpdateUserArgs = {
   id: Scalars["ID"];
   input: UserInput;
+};
+
+export type MutationCreateReviewArgs = {
+  from: Scalars["ID"];
+  to: Scalars["ID"];
 };
 
 export type Query = {
