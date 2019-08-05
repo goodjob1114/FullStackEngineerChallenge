@@ -5,7 +5,6 @@
   "type": "module",
   "scripts": {
     "start": "node build/server.js",
-    "prestart": "yarn run build",
     "build": "babel -s -x .ts -d ./build ./src",
     "prebuild": "rm -rf ./build",
     "watch:js": "yarn run build --watch",

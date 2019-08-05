@@ -15,6 +15,8 @@ const server = new GraphQLServer({
 });
 
 const start = async () => {
+  // TODO: fix the following type error
+  // @ts-ignore-next
   await createConnection(config);
   console.log(`Connected to the db at  ${config.host}:${config.port}`);
 

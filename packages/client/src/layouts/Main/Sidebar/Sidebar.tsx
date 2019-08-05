@@ -48,22 +48,22 @@ const Sidebar = (props: Props) => {
   const pages = [
     {
       title: 'Reviews',
-      href: '/reviews',
+      href: '#/reviews',
       icon: <RateReview />,
     },
     {
       title: 'Users',
-      href: '/users',
+      href: '#/users',
       icon: <PeopleIcon />,
     },
     {
       title: 'Account',
-      href: '/account',
+      href: '#',
       icon: <AccountBoxIcon />,
     },
     {
       title: 'Settings',
-      href: '/settings',
+      href: '#',
       icon: <SettingsIcon />,
     },
   ];
