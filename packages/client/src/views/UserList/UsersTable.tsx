@@ -88,6 +88,8 @@ const UsersTable = (props: Props) => {
                     onChange={handleSelectAll}
                   />
                 </TableCell>
+                {/* The empty cell for Edit buttons */}
+                <TableCell />
                 <TableCell>Name</TableCell>
                 <TableCell>Email</TableCell>
                 <TableCell>Registration date</TableCell>

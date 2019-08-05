@@ -44,5 +44,5 @@ input UserInput {
 
 type Mutation {
   createEmployee(name: String!, email: String!): User!
-  updateEmployee(id: ID!, input: UserInput!): User!
+  updateUser(id: ID!, input: UserInput!): User!
 }

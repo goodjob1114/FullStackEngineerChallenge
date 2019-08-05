@@ -11,7 +11,7 @@ const Mutation: MutationResolvers = {
     await userRepository.save(user);
     return user;
   },
-  updateEmployee: async (_, { id, input }) => {
+  updateUser: async (_, { id, input }) => {
     const userRepository = getRepository(UserEntity);
     const user = await userRepository.findOne(id);
     if (!user) {

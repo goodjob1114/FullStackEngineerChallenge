@@ -7,16 +7,25 @@ import {
   DialogContentText,
   TextField,
   DialogActions,
+  IconButton,
 } from '@material-ui/core';
-import {
-  useCreateEmployeeMutation,
-  GetUsersDocument,
-} from '../../generatedTypes';
+import EditIcon from '@material-ui/icons/Edit';
+import { useUpdateUserMutation, GetUsersDocument } from '../../generatedTypes';
 
-const AddEmployeeButton = () => {
+interface Props {
+  id: string;
+  name: string;
+  email: string;
+}
+
+const EditUserButton = ({
+  id,
+  name: defaultName,
+  email: defaultEmail,
+}: Props) => {
   const [open, setOpen] = useState(false);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState(defaultName);
+  const [email, setEmail] = useState(defaultEmail);
 
   const handleClickOpen = useCallback(() => {
     setOpen(true);
@@ -34,8 +43,9 @@ const AddEmployeeButton = () => {
     setEmail(e.target.value);
   }, []);
 
-  const [createEmployee, { error }] = useCreateEmployeeMutation({
+  const [updateUser, { error }] = useUpdateUserMutation({
     variables: {
+      id,
       name,
       email,
     },
@@ -44,29 +54,28 @@ const AddEmployeeButton = () => {
 
   const handleSubmit = useCallback(async () => {
     // TODO: validate the email input
-    await createEmployee();
+    await updateUser();
 
     // TODO: handle and monitor the error
     if (error) console.error(error);
 
     handleClose();
-  }, [createEmployee, error, handleClose]);
+  }, [updateUser, error, handleClose]);
 
   return (
     <>
-      <Button variant="contained" color="primary" onClick={handleClickOpen}>
-        Add employee
-      </Button>
+      <IconButton onClick={handleClickOpen} aria-label="edit">
+        <EditIcon />
+      </IconButton>
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Add employee</DialogTitle>
+        <DialogTitle id="form-dialog-title">Edit user</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            To create a new employee, please enter the email address and the
-            name.
+            To edit the user, change the email address or the name.
           </DialogContentText>
           <TextField
             autoFocus
@@ -90,7 +99,7 @@ const AddEmployeeButton = () => {
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
           <Button onClick={handleSubmit} color="primary">
-            Add
+            Update
           </Button>
         </DialogActions>
       </Dialog>
@@ -98,4 +107,4 @@ const AddEmployeeButton = () => {
   );
 };
 
-export default React.memo(AddEmployeeButton);
+export default React.memo(EditUserButton);

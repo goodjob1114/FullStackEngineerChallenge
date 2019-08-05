@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { Checkbox, TableCell, TableRow, Typography } from '@material-ui/core';
 import * as D from 'date-fns/fp';
 import AvatarCell from '../common/AvatarCell';
+import EditUserButton from './EditUserButton';
 
 export interface User {
   id: string;
@@ -32,6 +33,9 @@ const UserRow = (props: Props) => {
           onChange={handleSelect}
           value="true"
         />
+      </TableCell>
+      <TableCell padding="checkbox">
+        <EditUserButton id={user.id} name={user.name} email={user.email} />
       </TableCell>
       <AvatarCell id={user.id} name={user.name} />
       <TableCell>

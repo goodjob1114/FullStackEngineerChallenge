@@ -15,7 +15,7 @@ export type Scalars = {
 export type Mutation = {
   __typename?: "Mutation";
   createEmployee: User;
-  updateEmployee: User;
+  updateUser: User;
 };
 
 export type MutationCreateEmployeeArgs = {
@@ -23,7 +23,7 @@ export type MutationCreateEmployeeArgs = {
   email: Scalars["String"];
 };
 
-export type MutationUpdateEmployeeArgs = {
+export type MutationUpdateUserArgs = {
   id: Scalars["ID"];
   input: UserInput;
 };
@@ -88,6 +88,16 @@ export type GetUsersQuery = { __typename?: "Query" } & {
   >;
 };
 
+export type UpdateUserMutationVariables = {
+  id: Scalars["ID"];
+  email?: Maybe<Scalars["String"]>;
+  name?: Maybe<Scalars["String"]>;
+};
+
+export type UpdateUserMutation = { __typename?: "Mutation" } & {
+  updateUser: { __typename?: "User" } & Pick<User, "id" | "name" | "email">;
+};
+
 export const CreateEmployeeDocument = gql`
   mutation createEmployee($name: String!, $email: String!) {
     createEmployee(name: $name, email: $email) {
@@ -138,3 +148,27 @@ export function useGetUsersQuery(
   );
 }
 export type GetUsersQueryHookResult = ReturnType<typeof useGetUsersQuery>;
+export const UpdateUserDocument = gql`
+  mutation updateUser($id: ID!, $email: String, $name: String) {
+    updateUser(id: $id, input: { email: $email, name: $name }) {
+      id
+      name
+      email
+    }
+  }
+`;
+
+export function useUpdateUserMutation(
+  baseOptions?: ReactApolloHooks.MutationHookOptions<
+    UpdateUserMutation,
+    UpdateUserMutationVariables
+  >
+) {
+  return ReactApolloHooks.useMutation<
+    UpdateUserMutation,
+    UpdateUserMutationVariables
+  >(UpdateUserDocument, baseOptions);
+}
+export type UpdateUserMutationHookResult = ReturnType<
+  typeof useUpdateUserMutation
+>;
