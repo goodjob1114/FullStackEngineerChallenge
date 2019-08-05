@@ -1,8 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
-import { Button } from '@material-ui/core';
 import SearchInput from '../common/SearchInput';
 import { makeStyles } from '../../theme/theme';
+import CreateReviewButton from './CreateReviewButton';
 
 interface Props {
   className?: string;
@@ -33,10 +33,7 @@ const ReviewToolbar = (props: Props) => {
     <div {...rest} className={clsx(classes.root, className)}>
       <div className={classes.row}>
         <span className={classes.spacer} />
-        {/* TODO: implement adding reviews */}
-        <Button color="primary" variant="contained">
-          Create Review
-        </Button>
+        <CreateReviewButton />
       </div>
       <div className={classes.row}>
         {/* TODO: implement searching */}

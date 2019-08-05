@@ -1,0 +1,5 @@
+mutation createReview($from: ID!, $to: ID!) {
+  createReview(from: $from, to: $to) {
+    createdAt
+  }
+}
