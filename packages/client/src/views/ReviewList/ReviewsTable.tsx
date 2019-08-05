@@ -81,7 +81,7 @@ const ReviewsTable = (props: Props) => {
                 .sort((a, b) => b.createdAt - a.createdAt)
                 .slice(rowsPerPage * page, rowsPerPage * (page + 1))
                 .map(review => (
-                  <ReviewRow review={review} />
+                  <ReviewRow key={review.id} review={review} />
                 ))}
             </TableBody>
           </Table>

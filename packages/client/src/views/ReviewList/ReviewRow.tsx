@@ -3,7 +3,7 @@ import { TableCell, TableRow, Typography } from '@material-ui/core';
 import * as D from 'date-fns/fp';
 import { Review } from './ReviewsTable';
 import AvatarCell from '../common/AvatarCell';
-
+import EditReviewButton from './EditReviewButton';
 const DATETIME_FORMAT = 'dd/MM/yyyy HH:mm:ss';
 
 interface Props {
@@ -18,7 +18,12 @@ const ReviewRow = (props: Props) => {
       <AvatarCell id={review.to.id} name={review.to.name} />
       <AvatarCell id={review.from.id} name={review.from.name} />
       <TableCell>
-        <Typography variant="body1">{review.feedback}</Typography>
+        <Typography variant="body1">
+          {!review.submittedAt && (
+            <EditReviewButton id={review.id} toUserName={review.to.name} />
+          )}
+          {review.feedback}
+        </Typography>
       </TableCell>
       <TableCell>
         <Typography variant="body1">

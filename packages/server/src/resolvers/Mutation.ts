@@ -43,6 +43,18 @@ const Mutation: MutationResolvers = {
     await reviewRepository.save(review);
     return review;
   },
+  updateReview: async (_, { id, feedback }) => {
+    const reviewRepository = getRepository(ReviewEntity);
+    const review = await reviewRepository.findOne(id);
+    if (!review) {
+      // TODO: handler errors with apollo-error or similiar approaches
+      throw new Error(`can not find the user id: ${id}`);
+    }
+    review.feedback = feedback;
+    review.submittedAt = new Date();
+    await reviewRepository.save(review);
+    return review;
+  },
 };
 
 export default Mutation;

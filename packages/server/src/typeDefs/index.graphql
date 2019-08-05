@@ -47,4 +47,5 @@ type Mutation {
   createEmployee(name: String!, email: String!): User!
   updateUser(id: ID!, input: UserInput!): User!
   createReview(from: ID!, to: ID!): Review!
+  updateReview(id: ID!, feedback: String!): Review!
 }

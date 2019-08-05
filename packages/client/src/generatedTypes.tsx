@@ -17,6 +17,7 @@ export type Mutation = {
   createEmployee: User;
   updateUser: User;
   createReview: Review;
+  updateReview: Review;
 };
 
 export type MutationCreateEmployeeArgs = {
@@ -32,6 +33,11 @@ export type MutationUpdateUserArgs = {
 export type MutationCreateReviewArgs = {
   from: Scalars["ID"];
   to: Scalars["ID"];
+};
+
+export type MutationUpdateReviewArgs = {
+  id: Scalars["ID"];
+  feedback: Scalars["String"];
 };
 
 export type Query = {
@@ -93,6 +99,15 @@ export type GetReviewsQuery = { __typename?: "Query" } & {
         to: { __typename?: "User" } & Pick<User, "name" | "id">;
       }
   >;
+};
+
+export type UpdateReviewMutationVariables = {
+  id: Scalars["ID"];
+  feedback: Scalars["String"];
+};
+
+export type UpdateReviewMutation = { __typename?: "Mutation" } & {
+  updateReview: { __typename?: "Review" } & Pick<Review, "id">;
 };
 
 export type CreateEmployeeMutationVariables = {
@@ -181,6 +196,28 @@ export function useGetReviewsQuery(
   );
 }
 export type GetReviewsQueryHookResult = ReturnType<typeof useGetReviewsQuery>;
+export const UpdateReviewDocument = gql`
+  mutation updateReview($id: ID!, $feedback: String!) {
+    updateReview(id: $id, feedback: $feedback) {
+      id
+    }
+  }
+`;
+
+export function useUpdateReviewMutation(
+  baseOptions?: ReactApolloHooks.MutationHookOptions<
+    UpdateReviewMutation,
+    UpdateReviewMutationVariables
+  >
+) {
+  return ReactApolloHooks.useMutation<
+    UpdateReviewMutation,
+    UpdateReviewMutationVariables
+  >(UpdateReviewDocument, baseOptions);
+}
+export type UpdateReviewMutationHookResult = ReturnType<
+  typeof useUpdateReviewMutation
+>;
 export const CreateEmployeeDocument = gql`
   mutation createEmployee($name: String!, $email: String!) {
     createEmployee(name: $name, email: $email) {
