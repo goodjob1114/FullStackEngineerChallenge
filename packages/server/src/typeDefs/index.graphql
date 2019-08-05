@@ -36,3 +36,13 @@ type User {
 type Query {
   users: [User!]!
 }
+
+input UserInput {
+  name: String
+  email: String
+}
+
+type Mutation {
+  createEmployee(name: String!, email: String!): User!
+  updateEmployee(id: ID!, input: UserInput!): User!
+}

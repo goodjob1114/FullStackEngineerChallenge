@@ -12,6 +12,22 @@ export type Scalars = {
   Date: any;
 };
 
+export type Mutation = {
+  __typename?: "Mutation";
+  createEmployee: User;
+  updateEmployee: User;
+};
+
+export type MutationCreateEmployeeArgs = {
+  name: Scalars["String"];
+  email: Scalars["String"];
+};
+
+export type MutationUpdateEmployeeArgs = {
+  id: Scalars["ID"];
+  input: UserInput;
+};
+
 export type Query = {
   __typename?: "Query";
   users: Array<User>;
@@ -43,6 +59,11 @@ export type User = {
   fromReviews: Array<Review>;
   /** Reviews to this user. */
   toReviews: Array<Review>;
+};
+
+export type UserInput = {
+  name?: Maybe<Scalars["String"]>;
+  email?: Maybe<Scalars["String"]>;
 };
 export type GetUsersQueryVariables = {};
 

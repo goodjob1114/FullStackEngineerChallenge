@@ -15,6 +15,22 @@ export type Scalars = {
   Date: Date;
 };
 
+export type Mutation = {
+  __typename?: "Mutation";
+  readonly createEmployee: User;
+  readonly updateEmployee: User;
+};
+
+export type MutationCreateEmployeeArgs = {
+  name: Scalars["String"];
+  email: Scalars["String"];
+};
+
+export type MutationUpdateEmployeeArgs = {
+  id: Scalars["ID"];
+  input: UserInput;
+};
+
 export type Query = {
   __typename?: "Query";
   readonly users: ReadonlyArray<User>;
@@ -46,6 +62,11 @@ export type User = {
   readonly fromReviews: ReadonlyArray<Review>;
   /** Reviews to this user. */
   readonly toReviews: ReadonlyArray<Review>;
+};
+
+export type UserInput = {
+  readonly name?: Maybe<Scalars["String"]>;
+  readonly email?: Maybe<Scalars["String"]>;
 };
 export type WithIndex<TObject> = TObject & Record<string, any>;
 export type ResolversObject<TObject> = WithIndex<TObject>;
@@ -128,6 +149,8 @@ export type ResolversTypes = ResolversObject<{
   Role: Role;
   Date: ResolverTypeWrapper<Scalars["Date"]>;
   Review: ResolverTypeWrapper<Review>;
+  Mutation: ResolverTypeWrapper<{}>;
+  UserInput: UserInput;
   Boolean: ResolverTypeWrapper<Scalars["Boolean"]>;
 }>;
 
@@ -140,6 +163,8 @@ export type ResolversParentTypes = ResolversObject<{
   Role: Role;
   Date: Scalars["Date"];
   Review: Review;
+  Mutation: {};
+  UserInput: UserInput;
   Boolean: Scalars["Boolean"];
 }>;
 
@@ -147,6 +172,24 @@ export interface DateScalarConfig
   extends GraphQLScalarTypeConfig<ResolversTypes["Date"], any> {
   name: "Date";
 }
+
+export type MutationResolvers<
+  ContextType = any,
+  ParentType = ResolversParentTypes["Mutation"]
+> = ResolversObject<{
+  createEmployee?: Resolver<
+    ResolversTypes["User"],
+    ParentType,
+    ContextType,
+    MutationCreateEmployeeArgs
+  >;
+  updateEmployee?: Resolver<
+    ResolversTypes["User"],
+    ParentType,
+    ContextType,
+    MutationUpdateEmployeeArgs
+  >;
+}>;
 
 export type QueryResolvers<
   ContextType = any,
@@ -198,6 +241,7 @@ export type UserResolvers<
 
 export type Resolvers<ContextType = any> = ResolversObject<{
   Date?: GraphQLScalarType;
+  Mutation?: MutationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
   Review?: ReviewResolvers<ContextType>;
   User?: UserResolvers<ContextType>;
