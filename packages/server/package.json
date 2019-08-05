@@ -4,11 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "yarn run build && node build/server.js",
-    "build": "rm -rf ./build && babel -s -x .ts -d ./build ./src",
-    "watch:node": "nodemon --watch build/ build/server.js",
-    "watch:js": "yarn run build -w",
-    "watch": "yarn run build && concurrently \"yarn:watch:*\"",
+    "start": "node build/server.js",
+    "prestart": "yarn run build",
+    "build": "babel -s -x .ts -d ./build ./src",
+    "prebuild": "rm -rf ./build",
+    "watch:js": "yarn run build --watch",
+    "watch:node": "sleep 2 && nodemon --delay 2 --watch build/ build/server.js",
+    "watch": "concurrently \"yarn:watch:*\"",
     "type-check": "tsc"
   },
   "dependencies": {
