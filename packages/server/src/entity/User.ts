@@ -3,10 +3,13 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
+  OneToMany,
 } from 'typeorm';
+import { Role } from '../generatedTypes';
+import Review from './Review';
 
 @Entity()
-export class User {
+class User {
   @PrimaryGeneratedColumn('uuid')
   id!: string;
 
@@ -16,6 +19,21 @@ export class User {
   @Column('text')
   email!: string;
 
+  @Column({
+    type: 'enum',
+    enum: Role,
+    default: Role.Employee,
+  })
+  role!: Role;
+
   @CreateDateColumn()
   createdAt!: number;
+
+  @OneToMany(type => Review, review => review.from)
+  fromReviews!: Review[];
+
+  @OneToMany(type => Review, review => review.to)
+  toReviews!: Review[];
 }
+
+export default User;

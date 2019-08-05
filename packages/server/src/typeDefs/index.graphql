@@ -20,7 +20,7 @@ type User {
   id: ID!
   name: String!
   email: String!
-  role: [Role!]!
+  role: Role!
   createdAt: Date!
   """
   Reviews from or to this user.

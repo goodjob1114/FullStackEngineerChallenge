@@ -40,7 +40,7 @@ export type User = {
   readonly id: Scalars["ID"];
   readonly name: Scalars["String"];
   readonly email: Scalars["String"];
-  readonly role: ReadonlyArray<Role>;
+  readonly role: Role;
   readonly createdAt: Scalars["Date"];
   /** Reviews from or to this user. */
   readonly reviews: ReadonlyArray<Review>;
@@ -180,11 +180,7 @@ export type UserResolvers<
   id?: Resolver<ResolversTypes["ID"], ParentType, ContextType>;
   name?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
   email?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
-  role?: Resolver<
-    ReadonlyArray<ResolversTypes["Role"]>,
-    ParentType,
-    ContextType
-  >;
+  role?: Resolver<ResolversTypes["Role"], ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes["Date"], ParentType, ContextType>;
   reviews?: Resolver<
     ReadonlyArray<ResolversTypes["Review"]>,
