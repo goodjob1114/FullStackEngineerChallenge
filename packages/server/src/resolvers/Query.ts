@@ -11,7 +11,7 @@ const Query: QueryResolvers = {
   },
   reviews: async () => {
     const reviewRepository = getRepository(ReviewEntity);
-    const reviews = await reviewRepository.find();
+    const reviews = await reviewRepository.find({ relations: ['from', 'to'] });
     return reviews;
   },
 };
