@@ -29,10 +29,11 @@ const Profile = (props: Props) => {
 
   const classes = useStyles();
 
+  // TODO: use the real user profile
   const user = {
     name: 'CT Wu',
     avatar: 'https://avatars.dicebear.com/v2/male/wuct.svg',
-    bio: 'Fullstarck Engineer',
+    bio: 'Fullstack Engineer',
   };
 
   return (
