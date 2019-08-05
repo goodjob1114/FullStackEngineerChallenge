@@ -5,7 +5,7 @@ module.exports = {
   username: 'postgres',
   password: 'secret',
   database: 'postgres',
-  synchronize: true,
+  synchronize: process.env.NODE_ENV !== 'production',
   logging: false,
   entities: ['build/entity/**/*.js'],
   migrations: ['build/migration/**/*.js'],
