@@ -13,13 +13,17 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '../../theme/theme';
 import ReviewRow from './ReviewRow';
-import { User } from '../UserList/UserRow';
+
+interface User {
+  id: string;
+  name: string;
+}
 
 export interface Review {
   id: string;
   from: User;
   to: User;
-  feedback?: string;
+  feedback?: string | null;
   createdAt: number;
   submittedAt?: number;
 }

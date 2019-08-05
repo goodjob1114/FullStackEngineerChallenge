@@ -1,0 +1,16 @@
+query getReviews {
+  reviews {
+    id
+    createdAt
+    submittedAt
+    feedback
+    from {
+      name
+      id
+    }
+    to {
+      name
+      id
+    }
+  }
+}

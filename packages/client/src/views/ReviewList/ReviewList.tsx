@@ -1,7 +1,7 @@
 import React from 'react';
+import { useGetReviewsQuery } from '../../generatedTypes';
 import { makeStyles } from '../../theme/theme';
 import ReviewsToolbar from './ReviewsToolbar';
-import reviews from './data';
 import ReviewsTable from './ReviewsTable';
 
 const useStyles = makeStyles(theme => ({
@@ -15,6 +15,7 @@ const useStyles = makeStyles(theme => ({
 
 const ReviewList = () => {
   const classes = useStyles();
+  const { data: { reviews = [] } = {} } = useGetReviewsQuery();
 
   return (
     <div className={classes.root}>

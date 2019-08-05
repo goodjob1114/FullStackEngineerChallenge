@@ -40,10 +40,7 @@ const ReviewToolbar = (props: Props) => {
       </div>
       <div className={classes.row}>
         {/* TODO: implement searching */}
-        <SearchInput
-          className={classes.searchInput}
-          placeholder="Search user"
-        />
+        <SearchInput className={classes.searchInput} placeholder="Search" />
       </div>
     </div>
   );

@@ -34,6 +34,7 @@ export type MutationUpdateUserArgs = {
 export type Query = {
   __typename?: "Query";
   readonly users: ReadonlyArray<User>;
+  readonly reviews: ReadonlyArray<Review>;
 };
 
 export type Review = {
@@ -197,6 +198,11 @@ export type QueryResolvers<
 > = ResolversObject<{
   users?: Resolver<
     ReadonlyArray<ResolversTypes["User"]>,
+    ParentType,
+    ContextType
+  >;
+  reviews?: Resolver<
+    ReadonlyArray<ResolversTypes["Review"]>,
     ParentType,
     ContextType
   >;

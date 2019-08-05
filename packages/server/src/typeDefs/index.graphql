@@ -35,6 +35,7 @@ type User {
 
 type Query {
   users: [User!]!
+  reviews: [Review!]!
 }
 
 input UserInput {
