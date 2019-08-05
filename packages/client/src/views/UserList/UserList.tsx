@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useGetUsersQuery } from '../../generatedTypes';
-import mockData from './data';
 import { makeStyles } from '../../theme/theme';
 import UsersToolbar from './UsersToolbar';
 import UsersTable from './UsersTable';

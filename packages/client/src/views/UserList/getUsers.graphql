@@ -3,6 +3,7 @@ query getUsers {
     id
     name
     email
+    role
     createdAt
   }
 }

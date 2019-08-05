@@ -1,0 +1,9 @@
+mutation createEmployee($name: String!, $email: String!) {
+  createEmployee(name: $name, email: $email) {
+    id
+    name
+    email
+    role
+    createdAt
+  }
+}

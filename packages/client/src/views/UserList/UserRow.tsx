@@ -37,7 +37,6 @@ const UserRow = (props: Props) => {
       <TableCell>
         <Typography variant="body1">{user.email}</Typography>
       </TableCell>
-
       <TableCell>
         <Typography variant="body1">
           {D.format('dd/MM/yyyy', new Date(user.createdAt))}

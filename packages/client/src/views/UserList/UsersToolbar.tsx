@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { Button } from '@material-ui/core';
 import SearchInput from '../common/SearchInput';
 import { makeStyles } from '../../theme/theme';
+import AddEmployeeButton from './AddEmployeeButton';
 
 interface Props {
   className?: string;
@@ -41,10 +42,7 @@ const UsersToolbar = (props: Props) => {
         <span className={classes.spacer} />
         <Button className={classes.importButton}>Import</Button>
         <Button className={classes.exportButton}>Export</Button>
-        {/* TODO: implement adding users */}
-        <Button color="primary" variant="contained">
-          Add user
-        </Button>
+        <AddEmployeeButton />
       </div>
       <div className={classes.row}>
         {/* TODO: implement searching */}

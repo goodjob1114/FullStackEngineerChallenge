@@ -94,13 +94,17 @@ const UsersTable = (props: Props) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {users.slice(0, rowsPerPage).map(user => (
-                <UserRow
-                  selected={selectedUsers.includes(user.id)}
-                  user={user}
-                  onSelectedChange={handleSelectOne}
-                />
-              ))}
+              {users
+                .sort((a, b) => b.createdAt - a.createdAt)
+                .slice(rowsPerPage * page, rowsPerPage * (page + 1))
+                .map(user => (
+                  <UserRow
+                    key={user.id}
+                    selected={selectedUsers.includes(user.id)}
+                    user={user}
+                    onSelectedChange={handleSelectOne}
+                  />
+                ))}
             </TableBody>
           </Table>
         </div>
