@@ -1,8 +1,12 @@
 import { QueryResolvers } from '../generatedTypes';
+import { getRepository } from 'typeorm';
+import UserEntity from '../entity/User';
 
 const Query: QueryResolvers = {
-  users: () => {
-    return [];
+  users: async () => {
+    const userRepository = getRepository(UserEntity);
+    const users = await userRepository.find();
+    return users;
   },
 };
 
