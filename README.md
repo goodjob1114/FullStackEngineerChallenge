@@ -1,5 +1,56 @@
 # Full Stack Developer Challenge
-This is an interview challengs. Please feel free to fork. Pull Requests will be ignored.
+This is a fullstack developer challenge from [here](https://github.com/Pay-Baymax/FullStackEngineerChallenge).
+
+## To start the demo
+
+1. Make sure you have [yarn](https://yarnpkg.com/lang/en/docs/install/) and [docker](https://docs.docker.com/install/) installed on your machine.
+2. Clone this repo and install dependencies:
+  
+      ```sh
+      git clone https://github.com/wuct/FullStackEngineerChallenge.git
+      cd ./FullStackEngineerChallenge
+      yarn 
+      ```
+
+3. Build the server and the client:
+
+      ```sh
+      yarn workspace @wuct/client build
+      yarn workspace @wuct/server build
+      ```
+
+    > Note: there is a TypeScript version warning which can be ignored. 
+
+4. Seed the database with mock data:
+
+      ```sh
+      docker-compose up db
+      yarn workspace @wuct/server seed
+      docker-compose down 
+      ```
+
+    > Note: a folder `./pgdata` will be created on the host to keep the data in the database accross container lifecycles.
+
+5. Start all services:
+
+      ```sh
+      docker-compose up 
+      # or `docker-compose -d up` to run in the background
+      ```
+
+    Then go to:
+
+    - Performance review dashboard: [http://localhost:8080/]() 
+    - API document (GraphQL Playgroud): [http://localhost:4000/]() 
+
+    After finishing playing with the demo, run:
+
+    ```sh
+    docker-compose down 
+    ```
+
+    to turn down the services. Repeat this step when you want to see the demo again.
+## 
 
 ## Requirements
 Design a web application that allows employees to submit feedback toward each other's performance review.
