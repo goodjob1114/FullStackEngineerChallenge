@@ -15,11 +15,10 @@ This is a fullstack developer challenge from [here](https://github.com/Pay-Bayma
 3. Build the server and the client:
 
       ```sh
-      yarn workspace @wuct/client build
-      yarn workspace @wuct/server build
+      yarn run build
       ```
 
-    > Note: there is a TypeScript version warning which can be ignored. 
+    > Note: there is a TypeScript version warning because TypeScript 3.5 is not officially supported by typescript-estree currently. However, this will not affect our build.
 
 4. Seed the database with mock data:
 
@@ -50,7 +49,6 @@ This is a fullstack developer challenge from [here](https://github.com/Pay-Bayma
     ```
 
     to turn down the services. Repeat this step when you want to see the demo again.
-## 
 
 ## Requirements
 Design a web application that allows employees to submit feedback toward each other's performance review.
