@@ -2,6 +2,23 @@
 
 This is a fullstack developer challenge from [here](https://github.com/Pay-Baymax/FullStackEngineerChallenge).
 
+## About this monorepo
+
+The project is created as a Monorepo project, because Monorepo is:
+
+- Easy to coordinate changes across modules
+- Simplify dependencies
+- Single lint, build, test and release process
+- Test across modules are run together, find bugs that touch multiple modules easier
+
+There are there packages in this repo:
+
+| Package Name  | Description                                                                      |
+| ------------- | -------------------------------------------------------------------------------- |
+| @wuct/client  | A single page web application based on React                                     |
+| @wuct/server  | A NodeJS server based on Apollo GraphQL                                          |
+| @wuct/codegen | A code generator to generate TypeScript types from GraphQL schemas and documents |
+
 ## To start the demo
 
 1. Make sure you have [docker](https://docs.docker.com/install/) installed on your machine.
