@@ -10,7 +10,7 @@
     "packages/*"
   ],
   "scripts": {
-    "test": "lerna run test",
+    "test": "CI=true lerna run test",
     "type-check": "lerna run type-check",
     "build": "lerna run build",
     "start": "lerna run start"

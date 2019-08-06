@@ -11,7 +11,8 @@
     "watch:node": "sleep 5 && nodemon --delay 2 --watch build/ build/server.js",
     "watch": "concurrently \"yarn:watch:*\"",
     "type-check": "tsc",
-    "seed": "fixtures ./fixtures --config ./ormconfig.js --sync"
+    "seed": "fixtures ./fixtures --config ./ormconfig.js --sync",
+    "test": "jest"
   },
   "dependencies": {
     "graphql-import": "^0.7.1",
@@ -28,9 +29,11 @@
     "@babel/plugin-proposal-decorators": "^7.4.4",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-typescript": "^7.3.3",
+    "@types/jest": "^24.0.17",
     "babel-plugin-macros": "^2.6.1",
     "babel-plugin-transform-typescript-metadata": "^0.2.2",
     "concurrently": "^4.1.1",
+    "jest": "24.7.1",
     "nodemon": "^1.19.1",
     "typeorm-fixtures-cli": "^1.3.5"
   }

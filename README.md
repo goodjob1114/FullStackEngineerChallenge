@@ -118,3 +118,35 @@ There are there packages in this repo:
    to generate related TypeScript type definitions. See [Type System](#type-system) section for more detail.
 
 6. Do not forget to run `docker-compose down` when finishing.
+
+### To test
+
+To test all packages, run:
+
+```sh
+yarn run test
+```
+
+or run:
+
+```sh
+yarn workspace <PACKAGE NAME> test
+```
+
+to test specific project.
+
+### To check type
+
+To check all packages, run:
+
+```sh
+yarn run type-check
+```
+
+or run:
+
+```sh
+yarn workspace <PACKAGE NAME> type-check
+```
+
+to check specific project.
