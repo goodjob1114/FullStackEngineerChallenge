@@ -1,0 +1,22 @@
+# DO NOT USE IN PRODUCTION
+# This config if for the development enviroment
+
+version: "3"
+services:
+  db:
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data:delegated
+  server:
+    volumes:
+      - .:/server:delegated
+      # Create `./docker-yarn-cache` folder in the host,
+      # because yarn installs OS specific builds.
+      - ./.docker-yarn-cache:/root/yarn-cache:delegated
+    environment:
+      - YARN_CACHE_FOLDER=/root/yarn-cache
+      - NODE_ENV="development"
+    # Enable terminal features
+    stdin_open: true
+    tty: true

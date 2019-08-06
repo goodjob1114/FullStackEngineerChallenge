@@ -1,5 +1,6 @@
 # dependencies
 node_modules/
+.docker-yarn-cache/v
 
 # production
 build/

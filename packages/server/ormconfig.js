@@ -1,6 +1,6 @@
 module.exports = {
   type: 'postgres',
-  host: process.env.NODE_ENV === 'production' ? 'db' : 'localhost',
+  host: process.env.DB_HOST || 'db',
   port: 5432,
   username: 'postgres',
   password: 'secret',

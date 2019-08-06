@@ -8,11 +8,10 @@
     "build": "babel -s -x .ts -d ./build ./src",
     "prebuild": "rm -rf ./build",
     "watch:js": "yarn run build --watch",
-    "watch:node": "sleep 2 && nodemon --delay 2 --watch build/ build/server.js",
+    "watch:node": "sleep 5 && nodemon --delay 2 --watch build/ build/server.js",
     "watch": "concurrently \"yarn:watch:*\"",
     "type-check": "tsc",
-    "seed": "fixtures ./fixtures --config ./ormconfig.js --sync",
-    "preseed": "yarn run build"
+    "seed": "fixtures ./fixtures --config ./ormconfig.js --sync"
   },
   "dependencies": {
     "graphql-import": "^0.7.1",
