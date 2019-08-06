@@ -150,3 +150,21 @@ yarn workspace <PACKAGE NAME> type-check
 ```
 
 to check specific project.
+
+## Why do I user ...?
+
+### For the developing enviroment
+
+- **Docker Compose and Yarn:** to ensure the enviroment is consistent across machines through time by `docker-compose.yml` and `yarn.lock`,
+- **Yarn and Lerna:** to manage the monorepo.
+
+### For the correctness
+
+- **TypeScript and GraphQL:** static type-checking can reduce a lot of bug. I use [GraphQL Code Generator](https://graphql-code-generator.com/) to generate TypeScript type definitions based on GraphQL schemas and documents in [@wuct/codegen](https://github.com/wuct/FullStackEngineerChallenge/tree/master/packages/codegen). So once the schemas are defined, we can ensure all server code and client code are comply with the schema by type checking. This approach also known as "SDL Fisrt". As a nice side effect, we can also generate React Apollo hooks, e.g. [`useGetReviewsQuery()`](https://github.com/wuct/FullStackEngineerChallenge/blob/d5b7fdb70abe8058c1d518bdb6f745b9d041a9e4/packages/client/src/generatedTypes.tsx#L187-L197) directly from the documents to boost developing speed.
+
+### For the developing speed
+
+- **create-react-app:** to setup a React application with TypeScript supported.
+- **graphql-yoga:** to setup a GraphQL server with TypeScript supported.
+- **material-ui:** a React UI framework with a good document website, which is important for the developing speed. Also, its is designed from and for React specifically rather than a wrapper of other libraries.
+- **typeorm:** to setup the db tables by writing [entities](https://github.com/wuct/FullStackEngineerChallenge/tree/d5b7fdb70abe8058c1d518bdb6f745b9d041a9e4/packages/server/src/entity), and generate mock data for development automatically by writing [yaml files](https://github.com/wuct/FullStackEngineerChallenge/tree/d5b7fdb70abe8058c1d518bdb6f745b9d041a9e4/packages/server/fixtures).
