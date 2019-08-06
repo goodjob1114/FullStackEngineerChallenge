@@ -1,5 +1,7 @@
 # Full Stack Developer Challenge
 
+[![Build Status](https://travis-ci.org/wuct/FullStackEngineerChallenge.svg?branch=master)](https://travis-ci.org/wuct/FullStackEngineerChallenge)
+
 This is a fullstack developer challenge from [here](https://github.com/Pay-Baymax/FullStackEngineerChallenge).
 
 ## About this monorepo
